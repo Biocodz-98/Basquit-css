@@ -1,18 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Pet from "./pets";
+import Result from "./Results"; 
+import useBreedList from "./useBreedList";
 const ANIMALS = ["bird", "cat", "dog", "pig", "reptile", "rabbit"]
-const AOB =['Yes', 'No']  
+const [breed, setBreed] = useState(""); 
 
 
 const SearchParams = () => {
-  
-  
   const [location, setLocation] = useState ("Lagos, Nigeria");
   const [animal, setAnimal] = useState("");
-  const [number, setNumber] = useState(""); 
   const [pets, setPets] = useState([]); 
-  const [aob, setAob] = useState(""); 
+  const [breeds] = useBreedList(animal);
+   
   
   useEffect(() => {
     requestPets();
@@ -20,7 +19,7 @@ const SearchParams = () => {
 
   async function requestPets() {
     const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}`
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location} &breed=${breed}`
     );
     const json = await res.json();  
     setPets(json.pets); 
@@ -29,7 +28,11 @@ const SearchParams = () => {
   
   return (
     <div className="search-params">
-      <form>
+      <form onSubmit={e =>{
+        e.preventDefault();
+        requestPets();
+      }}>
+        
         <label htmlFor="location"> 
           Location
           <input
@@ -51,36 +54,26 @@ const SearchParams = () => {
         </select>
         </label>
 
-        <label htmlFor="number">
-          Tel.No
-          <input
-          onChange={(e) => setNumber(e.target.value)}
-          id="number" value={number} placeholder="+234" />
-          
-          </label>
-
-          <label htmlFor="aob">
-          AOB
+        <label htmlFor="breed">
+          Breed
         <select 
-        id="aob"
-        disabled = {aob.length === 0}
-        value = {aob}  
-        onChange={(e) => setAob(e.target.value)} 
+        id="breed"
+        disabled = {breed.length === 0}
+        value = {breeds}  
+        onChange={(e) => setBreed(e.target.value)} 
         >
           <option />
-        {AOB.map(aob=> (
-          <option key = {aob} >{aob}</option>
+        {breeds.map(breed=> (
+          <option key = {breed} >{breed}</option>
         ))}
         </select>
         </label>
 
         <button>Submit</button> 
       </form>
-      {pets.map(pet => (
-        <Pet key={pet.id} name={pet.name} animal={pet.animal} />
-      ))}
+      <Result pets={pets} />
       
-    </div>
+  </div>
   );
 };
 
