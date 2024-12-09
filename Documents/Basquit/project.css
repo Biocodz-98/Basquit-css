@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html,
+body{
+    font-family: 'popins', sans-serif;  
+    font-size: 18px;  
+    line-height: 1.6; 
+    scroll-behavior: smooth ;    
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}   
+
+p{
+    margin-bottom: 20px;
+}
+
+img{
+    max-width: 100%;    
+}
+
+.container{
+    max-width: 700px;
+    margin: 0 auto; 
+
+}
+
+.header{
+    background: linear-gradient(45deg, #f00, #00f);
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 80px;
+    position: sticky;   
+    top: 0;
+    z-index: 1000;  
+}
+
+.header.transparent{
+    background: linear-gradient( 45deg, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8));    
+}
+
+.header .menu a{
+    color:#fff;
+}
+
+.header .menu ul{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+header .menu a:hover{
+    color:#f00;
+}
+
+.section{
+    margin: 30px 0;
+}
+
+.section h2{
+    margin-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(45deg, #f00, #00f);
+    color: #fff;
+    font-size: 35px;
+}
+
+.section#home{
+    margin-bottom: 100px;
+}
+
+.aside {
+    text-align: center; 
+    margin-bottom: 30px;
+    
+}
+
+.aside a:hover{
+    color: #f00;    
+}
+
+
+
+.footer{
+    text-align: center;
+    font-size:15px;
+    
+}
+
