@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root{
+    --primary-color: #fcf5e9;
+    --container-normal: 1100px;
+    --container-wide: 1400px;
+    --container-narrow: 900px;
+    /* --image-height: 150px;   */
+    /* --image-width: calc(33.333% - 20px);   */
+}
+
+
+body{
+    font-family: 'Open Sans', sans-serif;   
+    line-height: 1.6;  
+    background-color: #FEF8EC; 
+}
+
+a{
+    text-decoration: none;
+    color: #333;    
+}
+
+ul{
+    list-style: none;    
+}   
+
+img{
+    max-width: 100%;    
+}
+
+/* utility classes */
+
+.bg-primary{
+    background-color: #fcf5e9;
+}
+
+
+/* Image size */
+
+/* .image-size{
+   /* height: var(--image-height);   */
+    /* width: var(--image-width);   */
+
+ */
+
+
+
+/* Container */
+
+.container {
+    max-width: var(--container-normal);
+    margin: 0 auto; 
+    padding: 0 1.5rem;
+
+}
+
+.container-lg {
+    max-width: var(--container-wide);
+
+}
+
+.container-sm{
+    max-width: var(--container-narrow);   
+}
+
+/* Header */    
+
+.header{
+    margin: 1.5rem auto;
+}
+
+.header .logo{
+    width: 180px; 
+       
+}
+
+.header .header-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .main-menu{
+    display: flex;
+    gap: 1rem;  
+}
+
+.header .main-menu a{
+   padding: 0.5rem 1rem;    
+
+}
+
+.header .main-menu a:hover{
+    background-color: var(--primary-color);    
+}   
+
+.current{
+    background-color: var(--primary-color);      
+    font-weight: 600;
+}
+
+.hero{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2{
+    font-size: 3rem;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+.gallery-flex{
+    display: flex;
+    gap: 16px;
+    
+}
+
+/* .gallery-item{ */
+    /* width: var(--image-width);   */
+
+
+
+    
+    
+
+
+/* media Queries */
+
+@media(max-width: 768px) {
+    .header .header-flex{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .hero{
+        height: 300px;
+    }
+
+    .hero h2{
+        font-size:1.8rem;
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
